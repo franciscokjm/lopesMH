@@ -2,7 +2,7 @@
 
 #### Neste repositório você encontrará:
 
-* [Projeto eletrônico da placa de controle do Microscópio Zeiss Primo Vert](inserir o link do repositório)
+* [Projeto eletrônico da placa de controle do Microscópio Zeiss Primo Vert](https://github.com/franciscokjm/lopesMH/tree/main/PrimoVert)
 
 #### Palavras-chave: 
 
