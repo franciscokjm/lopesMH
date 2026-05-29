@@ -32,45 +32,112 @@ Developed by the Scientific Maintenance and Instrumentation Division - BMC
 #define potLine_Pin A7 //read pin for adjust light
 
 //Variables declarations:
-boolean flagLight = false;
-byte buttonON_1;
-byte buttonON_2;
-int flag = 0;
+bool lightState = LOW;
+bool readButton_1, readButton_2;
+bool lastButState_1, lastButState_2 = LOW;
+
+
+int readButton;
 int lis, ris, adjLamp, adjLampMap;
+int dlyLamp = 2000;
 
 //Status of Microscope ON
 void blinkLed(){
-digitalWrite(led0_Pin,HIGH);
-digitalWrite(led1_Pin,HIGH);
-digitalWrite(led2_Pin,HIGH);
-digitalWrite(led3_Pin,HIGH);
-digitalWrite(led4_Pin,HIGH);
-delay(3000);
-digitalWrite(led0_Pin,LOW);
-digitalWrite(led1_Pin,LOW);
-digitalWrite(led2_Pin,LOW);
-digitalWrite(led3_Pin,LOW);
-digitalWrite(led4_Pin,LOW);
+  for(int i=0; i<2; i++){
+    for (int i=8; i<13; i++){
+      digitalWrite(i,HIGH);
+    }
+    delay(3000);
+    for (int i=8; i<13; i++){
+      digitalWrite(i,LOW);
+    }
+    delay(3000);
+  }
 }
 
 //Read buttons Auto
-bool buttonON(){
-  buttonON_1 = digitalRead(butLight1_Pin);
-  buttonON_2 = digitalRead(butLight2_Pin); 
-  if((buttonON_1 == 0) || (buttonON_2 == 0)) return true;
-  else return false;
+void buttonON(){
+  readButton_1 = digitalRead(butLight1_Pin);
+  readButton_2 = digitalRead(butLight2_Pin); 
+  if ((readButton_1 != lastButState_1) || (readButton_2 != lastButState_2)){
+    lastButState_1 = readButton_1;
+    lastButState_2 = readButton_2;
+    if((lastButState_1 == LOW) || (lastButState_2 == LOW)){
+      lightState = !lightState;
+      int val = adjLamp;
+      if(lightState==LOW){
+        do{
+          delay(dlyLamp);
+          val = val-1;
+          analogWrite(lpwm_Pin,val);
+        }while (val<1);
+        digitalWrite(len_Pin,lightState); //Enable L channel
+        digitalWrite(ren_Pin,lightState); //Disable R channel
+      }
+      if(lightState==HIGH){
+        digitalWrite(len_Pin,lightState); //Enable L channel
+        digitalWrite(ren_Pin,lightState); //Disable R channel
+        do{
+          delay(dlyLamp);
+          val = val+1;
+          analogWrite(lpwm_Pin,val);
+        }while (val<1);
+      }
+    }
+  }
+
+
+  Serial.print("lightState: ");
+  Serial.println(lightState);
+
 }
 
 //Current Driver Read
 void currentRead(){
   lis = analogRead(lis_Pin);
   ris = analogRead(ris_Pin);
+  Serial.print(lis);
+  Serial.print(" ");
+  Serial.print(ris);
 }
 
 void adjustLamp(){
-  int val = analogRead(potLine_Pin);
-  val = map(val,0,1023,255,0);
-  adjLamp = val;
+  adjLamp = analogRead(potLine_Pin);
+  adjLamp = map(adjLamp,0,1023,255,0);
+  analogWrite(lpwm_Pin,adjLamp);
+  if (adjLamp < 51) {
+    digitalWrite(8,HIGH);
+    for (int i=9; i<13; i++){
+      digitalWrite(i,LOW);
+    }
+  }
+  if (adjLamp > 50 && adjLamp < 102){
+     for (int i=8; i<10; i++){
+      digitalWrite(i,HIGH);
+    }
+    for (int i=10; i<13; i++){
+      digitalWrite(i,LOW);
+    }
+  }
+  if (adjLamp > 101 && adjLamp < 153){
+     for (int i=8; i<11; i++){
+      digitalWrite(i,HIGH);
+    }
+    for (int i=11; i<13; i++){
+      digitalWrite(i,LOW);
+    }
+  }
+  if (adjLamp > 152 && adjLamp < 204){
+     for (int i=8; i<12; i++){
+      digitalWrite(i,HIGH);
+    }
+    digitalWrite(12,LOW);
+  }
+  if (adjLamp > 203 && adjLamp < 256){
+     for (int i=8; i<13; i++){
+      digitalWrite(i,HIGH);
+    }
+  }
 }
 
 void setup() {
@@ -79,17 +146,16 @@ void setup() {
   for (int i=3; i<16; i++){
     pinMode(i,OUTPUT);
   }
-  pinMode(butLight1_Pin, INPUT_PULLUP);
-  pinMode(butLight2_Pin, INPUT_PULLUP);
+  pinMode(butLight1_Pin, INPUT);
+  pinMode(butLight2_Pin, INPUT);
   pinMode(potLine_Pin,INPUT);
 
   //Settings of the driver lamp
-
   for (int i=7; i<16; i++){
     digitalWrite(i,LOW);
   }
   digitalWrite(len_Pin,HIGH); //Enable L channel
-  digitalWrite(ren_Pin,LOW); //Disable R channel
+  digitalWrite(ren_Pin,HIGH); //Disable R channel
   analogWrite(rpwm_Pin,0); //R Channel Off from PWM control
 
   //Status of Microscope ON
@@ -98,13 +164,8 @@ void setup() {
 
 
 void loop() {
-  //Serial.println (buttonON());
-  
   adjustLamp();
-  Serial.print("adjLamp: ");
-  Serial.println(adjLampMap);
-  //analogWrite(lpwm_Pin,adjLampMap);
-  analogWrite(lpwm_Pin,255);
-  
-delay(5000);
+  buttonON();
+  //currentRead();
+  delay(200); 
 }
