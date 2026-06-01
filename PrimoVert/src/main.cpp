@@ -95,6 +95,7 @@ void currentLed(int valor){
     }
   }
 }
+
 //Read buttons Auto
 void buttonON(){
   readButton_1 = digitalRead(butLight1_Pin);
