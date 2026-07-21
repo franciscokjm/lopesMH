@@ -7,26 +7,20 @@
 * Documentações
 
 ##### Placa de controle:
-* &#160;&#160;&#160;&#160;&#160;Desenvolvimento de uma placa de controle em substituição da placa original danificada seguindo princípios de desenvolvimento Open Source.
+* &#160;&#160;&#160;&#160;&#160;Desenvolvimento de uma placa de controle em substituição da placa original danificada seguindo princípios de desenvolvimento Open-Source.
 
 ##### Palavras-chave: 
 * &#160;&#160;&#160;&#160;&#160;Instrumentação Científica, manutenção, Desenvimento Instrumental, Microscópio, Placa de controle.
 
-##### Desenvolvimento:
 
- &#160;&#160;&#160;&#160;&#160;_Dr. Kelliton Jose Mendonca Francisco <sup>1</sup>_
- 
- &#160;&#160;&#160;&#160;&#160;1. Departamento de Biologia Celular e do Desenvolvimento, USP, kelliton@usp.br | www.sites.usp.br/mic
-
-
-🤝 _Projeto financiado pela XXXXXXXX_
+<!--###### 🤝 _Desenvolvimento financiado pela XXXXXXXX_-->
 
 ##### Licença e Atribuição
 
 Este projeto é um ecossistema Open-Source dividido em três partes:
 - **Firmware (Arduino Nano V3):** Licenciado sob a [Licença GNU](https://github.com/franciscokjm/lopesMH/PrimoVert/LICENSE.txt).
 - **Hardware (PCB/Diptrace):** Licenciado sob a [CERN-OHL-S](https://ohwr.org/cern_ohl_s_v2.pdf).
-- **Modelos 3D (STL):** Licenciados sob [CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/).
+<!-- **Modelos 3D (STL):** Licenciados sob [CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/).-->
 
 Ao replicar, citar ou comercializar este dispositivo, o crédito aos desenvolvedores originais (**Profa. Dra. Marilene Hohmuth Lopes e Dr. Kelliton J. M. Francisco**) deve ser mantido de forma visível na documentação e no hardware.
 
