@@ -1,13 +1,13 @@
-# Projeto eletrônico de uma placa de controle para o Microscópio Zeiss Primo Vert
+# Desenvolvimento de uma placa de controle para o Microscópio Zeiss Primo Vert
 
 ##### Neste repositório você encontrará:
 
-* Esquema elétrônico, layout do PCB, arquivos gerber
+* [Esquema elétrônico, layout do PCB, arquivos gerber](https://github.com/franciscokjm/lopesMH/PrimoVert/Eletrônica)
 * [Firmware](https://github.com/franciscokjm/lopesMH/PrimoVert/Firmware)
-* Documentações
+* [Documentações](https://github.com/franciscokjm/lopesMH/PrimoVert/Documentação)
 
 ##### Placa de controle:
-* &#160;&#160;&#160;&#160;&#160;Desenvolvimento de uma placa de controle em substituição da placa original danificada seguindo princípios de desenvolvimento Open-Source.
+* &#160;&#160;&#160;&#160;&#160;Desenvolvimento de uma placa de controle seguindo princípios de desenvolvimento Open-Source.
 
 ##### Palavras-chave: 
 * &#160;&#160;&#160;&#160;&#160;Instrumentação Científica, manutenção, Desenvimento Instrumental, Microscópio, Placa de controle.
