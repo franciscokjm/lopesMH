@@ -17,10 +17,10 @@
 
 ##### Licença e Atribuição
 
-Este projeto é um ecossistema Open-Source dividido em 2 partes:
+Este projeto é um ecossistema Open-Source dividido em 3 partes:
 - **Firmware (Arduino Nano V3):** Licenciado sob a [Licença GNU](https://github.com/franciscokjm/lopesMH/PrimoVert/LICENSE.txt).
 - **Hardware (PCB/Diptrace):** Licenciado sob a [CERN-OHL-S](https://ohwr.org/cern_ohl_s_v2.pdf).
-<!-- **Modelos 3D (STL):** Licenciados sob [CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/).-->
+- **Documentações:** Licenciadas sob [CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 Ao replicar, citar ou comercializar este dispositivo, o crédito aos desenvolvedores originais (**Profa. Dra. Marilene Hohmuth Lopes e Dr. Kelliton J. M. Francisco**) deve ser mantido de forma visível na documentação e no hardware.
 
