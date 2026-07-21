@@ -1,6 +1,6 @@
 # LopesMH
 
-Repositório do _Setor de Manutenção e Instrumentação Científica - MIC_ em parceria com o _Laboratório Neurobiologia e Células-Tronco - LNCT_
+Repositório do _Setor de Manutenção e Instrumentação Científica - MIC_ - em parceria com o _Laboratório Neurobiologia e Células-Tronco - LNCT_
 
 ---
 
