@@ -2,7 +2,7 @@
 
 ##### Neste repositório você encontrará:
 
-* [Esquema elétrônico, layout do PCB, arquivos gerber](https://github.com/franciscokjm/lopesMH/PrimoVert/Eletrônica)
+* [Hardware](https://github.com/franciscokjm/lopesMH/PrimoVert/Eletrônica)
 * [Firmware](https://github.com/franciscokjm/lopesMH/PrimoVert/Firmware)
 * [Documentações](https://github.com/franciscokjm/lopesMH/PrimoVert/Documentação)
 
@@ -17,7 +17,7 @@
 
 ##### Licença e Atribuição
 
-Este projeto é um ecossistema Open-Source dividido em três partes:
+Este projeto é um ecossistema Open-Source dividido em 2 partes:
 - **Firmware (Arduino Nano V3):** Licenciado sob a [Licença GNU](https://github.com/franciscokjm/lopesMH/PrimoVert/LICENSE.txt).
 - **Hardware (PCB/Diptrace):** Licenciado sob a [CERN-OHL-S](https://ohwr.org/cern_ohl_s_v2.pdf).
 <!-- **Modelos 3D (STL):** Licenciados sob [CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/).-->
